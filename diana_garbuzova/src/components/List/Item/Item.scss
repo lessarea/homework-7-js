@@ -1,0 +1,28 @@
+@import '../../../style/variables';
+
+.item {
+  position: relative;
+  margin-top: $main-indent;
+  padding: $main-indent;
+  border-radius: 2px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .3);
+  font-family: 'Raleway', $font-stack;
+
+  &__name {
+    text-transform: capitalize;
+    margin-bottom: $main-indent;
+    font-size: 1.4em;
+    font-weight: 300;
+    color: #212121;
+  }
+  &__top {
+    position: absolute;
+
+    @media screen and (max-width: 480px) {
+      position: initial;
+      display: block;
+      text-align: center;
+      margin: $main-indent 0;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../../style/variables.scss';
+
+.pagination__button {
+  &_number {
+    padding: 0 10px;
+
+    @media only screen and (max-width: 480px) {
+      padding: 0 5px;
+    }
+  }
+  &_active {
+    color: $active-color;
+  }
+}

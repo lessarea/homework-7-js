@@ -1,0 +1,26 @@
+@import '../../style/variables';
+
+.item {
+  &__id {
+    position: absolute;
+    right: $main-indent;
+    top: $main-indent;
+    line-height: .5;
+    margin: 0;
+
+    &-number {
+      color: $back-color;
+      font-size: 35px;
+      font-weight: 900;
+    }
+  }
+  &__status {
+    display: inline-grid;
+    margin: 0;
+  }
+  &__text {
+    font-size: 15px;
+    font-weight: 300;
+    color: #333;
+  }
+}
