@@ -1,0 +1,13 @@
+@import '../../style/variables';
+
+.item__button {
+  position: absolute;
+  right: $main-indent;
+  bottom: $main-indent;
+  padding: 8px $main-indent;
+
+  @media screen and (max-width: 480px) {
+    position: initial;
+    width: 100%;
+  }
+}

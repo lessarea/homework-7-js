@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto 40px!important;
+
+  &__button_active {
+    color: #4db6ac;
+  }
+
+  @media only screen and (max-width: 600px) {
+    & {
+      margin: 30px auto 30px!important;
+    }
+  }
+}

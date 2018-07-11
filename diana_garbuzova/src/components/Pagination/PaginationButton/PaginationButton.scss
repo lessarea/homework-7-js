@@ -1,0 +1,27 @@
+@import "../../../style/variables.scss";
+
+.pagination__button {
+  text-decoration: none;
+  color: $primary-color;
+  font-size: 1.2em;
+
+  &_disabled {
+    pointer-events: none;
+    color: #bdbdbd
+  }
+  &_nav {
+    margin: 0 20px;
+
+    &:hover {
+      color: #757575;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 2px;
+  }
+}

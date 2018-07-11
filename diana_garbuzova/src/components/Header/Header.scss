@@ -1,0 +1,37 @@
+@import '../../style/variables';
+
+.header {
+  position: sticky;
+  top: 0;
+  background: $back-color;
+  font-family: 'Raleway', $font-stack;
+  z-index: 1;
+
+  &__container {
+    display: flex;
+  }
+  &__link {
+    text-decoration: none;
+    padding: 12px;
+    color: #fff;
+
+    &_main {
+      margin-right: 30px;
+      padding: 12px 0;
+      font-size: 20px;
+      font-weight: 900;
+    }
+    &_sub {
+      border-bottom: 3px solid transparent;
+      font-size: 18px;
+      font-weight: 300;
+
+      &:hover {
+        color: $active-color;
+      }
+    }
+    &_active {
+      border-bottom-color: $active-color;
+    }
+  }
+}
