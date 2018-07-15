@@ -25,10 +25,6 @@ body {
   &:focus {
     outline: none;
   }
-  &_disabled {
-    pointer-events: none;
-    background: #757575 !important;
-  }
   &_green {
     color: #fff;
     background: $back-color;
@@ -40,6 +36,10 @@ body {
     &:active {
       background: #4db6ac;
     }
+  }
+  &_disabled {
+    pointer-events: none;
+    background: #757575;
   }
 }
 

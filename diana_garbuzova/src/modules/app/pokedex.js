@@ -4,6 +4,12 @@ import {
   getCatchedPokemonById,
   getAllPokemons,
 } from '../service';
+import {
+  CATCH_POKEMON,
+  GET_CATCHED,
+  GET_POKEMON,
+  GET_POKEMONS
+} from '../types';
 
 const initialState = {
   allPokemons: null,
@@ -12,16 +18,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'getPokemons':
+    case GET_POKEMONS:
       return { ...state, allPokemons: action.payload };
 
-    case 'getCatched':
+    case GET_CATCHED:
       return { ...state, catchedPokemons: action.payload };
 
-    case 'getPokemon':
+    case GET_POKEMON:
       return { ...state, pokemon: action.payload };
 
-    case 'catchPokemon':
+    case CATCH_POKEMON:
       return {
         ...state,
         catchedPokemons: [action.payload, ...state.catchedPokemons],
@@ -36,21 +42,21 @@ export default (state = initialState, action) => {
 export const getPokemons = () => (dispatch) => {
   getAllPokemons()
     .then((pokemons) => {
-      dispatch({ type: 'getPokemons', payload: pokemons });
+      dispatch({ type: GET_POKEMONS, payload: pokemons });
     });
 };
 
 export const getCatched = () => (dispatch) => {
   getCatchedPokemons()
     .then((pokemons) => {
-      dispatch({ type: 'getCatched', payload: pokemons });
+      dispatch({ type: GET_CATCHED, payload: pokemons });
     });
 };
 
 export const getPokemon = id => (dispatch) => {
   getCatchedPokemonById(id)
     .then((pokemon) => {
-      dispatch({ type: 'getPokemon', payload: pokemon });
+      dispatch({ type: GET_POKEMON, payload: pokemon });
     });
 };
 
@@ -61,5 +67,7 @@ export const catchPokemon = pokemon => (dispatch) => {
     ...pokemon,
   };
   addToCatched(catchedPokemon)
-    .then(() => dispatch({ type: 'catchPokemon', payload: catchedPokemon }));
+    .then(() => {
+      dispatch({ type: CATCH_POKEMON, payload: catchedPokemon });
+    });
 };

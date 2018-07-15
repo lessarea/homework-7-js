@@ -13,11 +13,10 @@ class PokemonContainer extends React.Component {
   }
 
   render() {
-    const { match, pokemon } = this.props;
-    const { id } = match.params;
+    const { pokemon } = this.props;
     return (
       pokemon
-        ? <Pokemon id={id} pokemon={pokemon} />
+        ? <Pokemon pokemon={pokemon} />
         : <Spinner />
     );
   }

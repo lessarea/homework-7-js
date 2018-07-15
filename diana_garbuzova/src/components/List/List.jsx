@@ -12,7 +12,7 @@ const List = ({ children, data }) => (
     : data.length === 0
       ? <NoContent />
       : (
-        <ul className='container list'>
+        <ul className='container list pokemon__list'>
           {data.map(item => (
             <Item key={item.id} item={item}>
               {children}

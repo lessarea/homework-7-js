@@ -7,10 +7,11 @@ const PaginationButton = ({
   onClick, page, name, currentPage, endPointPage,
 }) => {
   const exClassName = `${currentPage === endPointPage ? 'pagination__button_disabled' : ''}`;
+  const handlePageClick = () => onClick(page);
   return (
     <Link
       to={`/page/${page}`}
-      onClick={() => onClick(page)}
+      onClick={handlePageClick}
       className={`button pagination__button pagination__button_nav ${exClassName}`}
     >
       {name}

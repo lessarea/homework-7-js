@@ -18,7 +18,7 @@ const Item = ({ children, pokemons, item }) => {
           to={`/pokemon/${id}`}
           className='item__img'
         >
-          <Image id={id} />
+          <Image id={id} name={name} />
         </Link>
         <span className='item__name item__top'>{name}</span>
         {children}

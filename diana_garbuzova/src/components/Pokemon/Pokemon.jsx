@@ -5,8 +5,8 @@ import moment from 'moment';
 
 import Image from '../List/Image';
 
-const Pokemon = ({ id, pokemon }) => {
-  const { name, catched } = pokemon;
+const Pokemon = ({ pokemon }) => {
+  const { id, name, catched } = pokemon;
   const { catchedDate } = catched.length >= 1 && catched[0];
   const dateString = moment(catchedDate).fromNow();
   const status = `Status: ${catchedDate
@@ -15,7 +15,7 @@ const Pokemon = ({ id, pokemon }) => {
   return (
     <div className='container'>
       <div className='item'>
-        <Image id={id} />
+        <Image id={id} name={name} />
         <p className='item__status item__top'>
           <span className='item__name'>{name}</span>
           <span className='item__text'>{status}</span>
@@ -30,8 +30,11 @@ const Pokemon = ({ id, pokemon }) => {
 };
 
 Pokemon.propTypes = {
-  id: PropTypes.string.isRequired,
-  pokemon: PropTypes.object,
+  pokemon: PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number,
+    catched: PropTypes.array,
+  }),
 };
 
 export default Pokemon;

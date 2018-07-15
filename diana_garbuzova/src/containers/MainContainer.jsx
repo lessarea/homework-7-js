@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { getCatched, getPokemons } from '../modules/app/pokedex';
+import { catchPokemon, getCatched, getPokemons } from '../modules/app/pokedex';
 import { getPokemonsByPage } from '../utils/utils';
 import List from '../components/List';
 import CatchButton from '../components/CatchButton';
@@ -16,8 +16,8 @@ class MainContainer extends Component {
   };
 
   componentDidMount() {
-    const { dispatch, catchedPokemons } = this.props;
-    dispatch(getPokemons());
+    const { dispatch, pokemons, catchedPokemons } = this.props;
+    !pokemons && dispatch(getPokemons());
     !catchedPokemons && dispatch(getCatched());
   }
 
@@ -25,6 +25,11 @@ class MainContainer extends Component {
     const { pokemons } = this.props;
     const pageOfPokemons = getPokemonsByPage(pokemons, page, PAGE_SIZE);
     this.setState({ pageOfPokemons });
+  };
+
+  onCatchClick = item => {
+    const { dispatch } = this.props;
+    dispatch(catchPokemon(item))
   };
 
   render() {
@@ -36,7 +41,7 @@ class MainContainer extends Component {
     return (
       <Fragment>
         <List data={currentPage}>
-          <CatchButton />
+          <CatchButton onCatchCLick={this.onCatchClick} />
         </List>
         {pokemons && <PaginationContainer
           count={pokemons.length}
